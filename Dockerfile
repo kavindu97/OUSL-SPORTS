@@ -4,4 +4,4 @@ COPY ./target/FinalProject-0.0.1-SNAPSHOT.jar /app
 
 EXPOSE 8081
 
-CMD ["echo", "Hello world"]
+CMD ["java", "-jar", "FinalProject-0.0.1-SNAPSHOT.jar"]
