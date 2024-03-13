@@ -5,10 +5,13 @@ import com.kavindu.dto.UserDTO;
 import com.kavindu.model.UserEntity;
 import com.kavindu.repository.UserRepository;
 import com.kavindu.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+
 @Service
 public class UserServiceImpl implements UserService {
+    private static  final Logger LOG= LoggerFactory.getLogger(UserServiceImpl.class);
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -155,5 +160,9 @@ try {
             return responseDto;
         }
 
+    }
+    @Scheduled(fixedRate =1 * 60 * 1000)
+    public void test(){
+LOG.info("test");
     }
 }
