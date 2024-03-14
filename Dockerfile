@@ -9,4 +9,4 @@ EXPOSE 8081
 RUN mkdir -p /var/log/myapp
 
 # Set permissions for the log directory
-RUN chown -R jenkins:jenkins /var/log/myapp
+RUN chown -R jenkins:Kavindu Praneeth /var/log/myapp
