@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-<!--    <springProperty scope="context" name="LOG_PATH" source="LOG_PATH" defaultValue="/var/log/myapp"/>-->
+    <springProperty scope="context" name="LOG_PATH" source="LOG_PATH" defaultValue="/var/log/myapp"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <Pattern>[%d][%thread] %highlight(%-5level) %-60logger{60} :%msg%n</Pattern>
