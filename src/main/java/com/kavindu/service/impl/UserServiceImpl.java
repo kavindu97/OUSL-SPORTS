@@ -164,5 +164,6 @@ try {
     @Scheduled(fixedRate =1 * 60 * 1000)
     public void test(){
 LOG.info("test");
+LOG.warn("erasg");
     }
 }
