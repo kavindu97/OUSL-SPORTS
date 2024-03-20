@@ -16,10 +16,10 @@
 #COPY logback.xml /app/
 #CMD ["java", "-jar", "FinalProject-0.0.1-SNAPSHOT.jar"]
 FROM maven:3.8.3-openjdk-17
-WORKDIR /app
+WORKDIR /app/target
 COPY . .
 RUN mvn clean install
 # Copy the Logback configuration file
-COPY logback.xml /app/
+COPY logback.xml /app/target
 EXPOSE 8081
 CMD ["java", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
