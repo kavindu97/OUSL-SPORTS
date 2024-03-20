@@ -1,4 +1,4 @@
-cat <<EOT >> logback.xml
+
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <springProperty scope="context" name="LOG_PATH" source="LOG_PATH" defaultValue="/var/log/myapp"/>
@@ -22,4 +22,3 @@ cat <<EOT >> logback.xml
         <appender-ref ref="RollingFile"/>
     </root>
 </configuration>
-EOT
