@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <springProperty scope="context" name="LOG_PATH" source="LOG_PATH" defaultValue="/var/log/myapp"/>
