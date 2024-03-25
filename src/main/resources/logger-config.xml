@@ -6,12 +6,12 @@
         </layout>
     </appender>
     <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>OU-Backend.log</file>
+        <file>/var/log/OU-Backend.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>[%d][%thread] %highlight(%-5level) %-60logger{60} :%msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>OU-Backend-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>/var/log/OU-Backend-%d{yyyy-MM-dd}.log</fileNamePattern>
             <cleanHistoryOnStart>false</cleanHistoryOnStart>
         </rollingPolicy>
     </appender>
