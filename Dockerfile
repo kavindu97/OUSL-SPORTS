@@ -20,6 +20,6 @@ WORKDIR /app/target
 COPY . .
 RUN mvn clean install
 # Copy the Logback configuration file
-COPY logback.xml /srv/myapp/
+#COPY logback.xml /srv/myapp/
 EXPOSE 8081
 CMD ["java", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
