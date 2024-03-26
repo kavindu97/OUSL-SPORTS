@@ -21,5 +21,11 @@ COPY . .
 RUN mvn clean install
 # Copy the Logback configuration file
 #COPY logback.xml /srv/myapp/
+
+# Define a volume for the log files
+VOLUME /srv/myapp/
+
+# Configure logback to save log files in the mounted volume
+COPY logger-config.xml /app/target/src/main/resources/logger-config.xml
 EXPOSE 8081
 CMD ["java", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
