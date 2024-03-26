@@ -79,9 +79,10 @@ RUN mvn clean install
 
 RUN mkdir logs
 
+VOLUME ["./logs"]
 ENV LOG_FILE_PATH=./logs/OU-Backend.log
 
-VOLUME ["./logs"]
+
 
 # Create a test text file in the volume
 #CMD ["sh", "-c", "echo 'This is a test file' > /srv/myapp/test.txt && java -Dlogback.configurationFile=/src/main/resources/logger-config.xml -jar target/FinalProject-0.0.1-SNAPSHOT.jar"]
