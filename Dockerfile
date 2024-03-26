@@ -15,17 +15,33 @@
 ## Copy the Logback configuration file
 #COPY logback.xml /app/
 #CMD ["java", "-jar", "FinalProject-0.0.1-SNAPSHOT.jar"]
+#FROM maven:3.8.3-openjdk-17
+#WORKDIR /app/target
+#COPY . .
+#RUN mvn clean install
+## Copy the Logback configuration file
+##COPY logback.xml /srv/myapp/
+#
+## Define a volume for the log files
+#VOLUME /srv/myapp/
+#
+## Configure logback to save log files in the mounted volume
+#COPY logger-config.xml /src/main/resources/logger-config.xml
+#EXPOSE 8081
+#CMD ["java", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
+
 FROM maven:3.8.3-openjdk-17
-WORKDIR /app/target
+WORKDIR /app
 COPY . .
+
+# Build the application
 RUN mvn clean install
+
 # Copy the Logback configuration file
-#COPY logback.xml /srv/myapp/
+COPY logger-config.xml /app/src/main/resources/logger-config.xml
 
 # Define a volume for the log files
 VOLUME /srv/myapp/
 
-# Configure logback to save log files in the mounted volume
-COPY logger-config.xml /app/target/src/main/resources/logger-config.xml
 EXPOSE 8081
 CMD ["java", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
