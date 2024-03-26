@@ -38,7 +38,7 @@ COPY . .
 RUN mvn clean install
 
 # Copy the Logback configuration file
-COPY logger-config.xml /app/src/main/resources/logger-config.xml
+COPY logger-config.xml /src/main/resources/logger-config.xml
 
 # Define a volume for the log files
 VOLUME /srv/myapp/
