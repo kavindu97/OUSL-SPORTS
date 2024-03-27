@@ -30,6 +30,19 @@
 #EXPOSE 8081
 #CMD ["java", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
 
+#FROM maven:3.8.3-openjdk-17
+#WORKDIR /app
+#COPY . .
+#
+## Build the application
+#RUN mvn clean install
+#
+## Define a volume for the log files
+#VOLUME /srv/myapp/
+#
+#EXPOSE 8081
+#CMD ["java", "-Dlogback.configurationFile=/srv/myapp/logger-config.xml", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
+
 FROM maven:3.8.3-openjdk-17
 WORKDIR /app
 COPY . .
@@ -40,5 +53,5 @@ RUN mvn clean install
 # Define a volume for the log files
 VOLUME /srv/myapp/
 
-EXPOSE 8081
-CMD ["java", "-Dlogback.configurationFile=/srv/myapp/logger-config.xml", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
+# Copy the logger configuration file to the mounted folder
+CMD ["sh", "-c", "cp /app/logger-config.xml /srv/myapp/ && java -Dlogback.configurationFile=/srv/myapp/logger-config.xml -jar target/FinalProject-0.0.1-SNAPSHOT.jar"]
