@@ -54,4 +54,4 @@ RUN mvn clean install
 VOLUME /srv/myapp/
 
 # Copy the logger configuration file to the mounted folder
-CMD ["sh", "-c", "cp /app/logger-config.xml /srv/myapp/ && java -Dlogback.configurationFile=/srv/myapp/logger-config.xml -jar target/FinalProject-0.0.1-SNAPSHOT.jar"]
+CMD ["sh", "-c", "cp /src/main/resources/logger-config.xml /srv/myapp/ && java -Dlogback.configurationFile=/srv/myapp/logger-config.xml -jar target/FinalProject-0.0.1-SNAPSHOT.jar"]
