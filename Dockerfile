@@ -75,15 +75,12 @@ COPY . .
 RUN mvn clean install
 
 # Define a volume for the log files
-#VOLUME /srv/myapp/
-
 RUN mkdir logs
-
 VOLUME ["./logs"]
 ENV LOG_FILE_PATH=./logs/OU-Backend.log
 
+# Set the logback configuration file path as an environment variable
+ENV LOGBACK_CONFIG_FILE=logback.xml
 
-
-# Create a test text file in the volume
-#CMD ["sh", "-c", "echo 'This is a test file' > /srv/myapp/test.txt && java -Dlogback.configurationFile=/src/main/resources/logger-config.xml -jar target/FinalProject-0.0.1-SNAPSHOT.jar"]
-CMD ["java", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
+# Run the application
+CMD ["java", "-Dlogback.configurationFile=/app/src/main/resources/logback.xml", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
