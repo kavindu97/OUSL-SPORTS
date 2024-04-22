@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 
 
+
 @Service
 public class UserServiceImpl implements UserService {
     private static  final Logger LOG= LoggerFactory.getLogger(UserServiceImpl.class);
@@ -163,7 +164,11 @@ try {
     }
     @Scheduled(fixedRate =1 * 60 * 1000)
     public void test(){
-LOG.info("test");
-LOG.warn("erasg");
+        LOG.info("test");
+        LOG.warn("erasg");
+
+
     }
+
+
 }

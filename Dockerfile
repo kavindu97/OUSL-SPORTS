@@ -80,7 +80,7 @@ VOLUME ["./logs"]
 ENV LOG_FILE_PATH=./logs/OU-Backend.log
 
 # Set the logback configuration file path as an environment variable
-ENV LOGBACK_CONFIG_FILE=logback.xml
+ENV LOGBACK_CONFIG_FILE=logger-config.xml
 
 # Run the application
-CMD ["java", "-Dlogback.configurationFile=/app/src/main/resources/logback.xml", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-Dlogback.configurationFile=/app/src/main/resources/logger-config.xml", "-jar", "target/FinalProject-0.0.1-SNAPSHOT.jar"]
